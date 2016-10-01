@@ -9,7 +9,7 @@ $passwd="passwd";	//操作员密码
 
 //---------------上面为需要填写的个人信息,下面内容无需改动---------------//
 
-$i=0;$k=0;$bsize=1048576;
+$i=0;$k=0;$bsize=1048576;  // $bsize 为又拍云CDN服务端规定的分块大小,为1048576字节(1M)
 $length=filesize($lpath);
 $method="PUT";
 $accpoint="http://v0.api.upyun.com/";
