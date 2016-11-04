@@ -55,8 +55,8 @@ while(!feof($fh)){
 	fwrite($handle,fread($fh,$bsize)); 
 	fclose($handle);
 	$handle = fopen("tempfile.{$i}","rb"); 
-
-	$sign=md5($method."&/".$qzone.$upath."&".$date."&".filesize("tempfile.{$i}")."&".md5($passwd));
+	$date = gmdate('D, d M Y H:i:s \G\M\T');
+	$sign=md5($method."&/".$qzone.$upath."&".$datecc."&".filesize("tempfile.{$i}")."&".md5($passwd));
 	$stra="UpYun ".$user.":".$sign;
 
 	$ch = curl_init($accpoint.$qzone.$upath);
@@ -70,7 +70,7 @@ while(!feof($fh)){
 	$_headers=array();
 	array_push($_headers, "Content-Length: ".$length);
 	array_push($_headers, "Authorization: ".$stra);
-	array_push($_headers, "Date: ".$date);
+	array_push($_headers, "Date: ".$datecc);
 	array_push($_headers, "X-Upyun-Multi-Stage: upload");
 	array_push($_headers, "X-Upyun-Multi-UUID: ".$muuid[0]);
 	array_push($_headers, "X-Upyun-Part-ID: ".$k++);
