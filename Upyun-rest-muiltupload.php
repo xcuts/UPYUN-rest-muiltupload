@@ -55,7 +55,7 @@ while(!feof($fh)){
 	fwrite($handle,fread($fh,$bsize)); 
 	fclose($handle);
 	$handle = fopen("tempfile.{$i}","rb"); 
-	$date = gmdate('D, d M Y H:i:s \G\M\T');
+	$datecc = gmdate('D, d M Y H:i:s \G\M\T');
 	$sign=md5($method."&/".$qzone.$upath."&".$datecc."&".filesize("tempfile.{$i}")."&".md5($passwd));
 	$stra="UpYun ".$user.":".$sign;
 
