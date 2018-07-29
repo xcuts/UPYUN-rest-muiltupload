@@ -38,7 +38,7 @@ curl_setopt($ch, CURLOPT_POST, 1);
 $response=curl_exec($ch);
 $res_code=curl_getinfo($ch, CURLINFO_HTTP_CODE);
 $temp=explode(":",$response);
-$muuid=explode("\n",$temp[12]);
+$muuid=explode("\n",$temp[11]);
 if($res_code==204){
 	echo "\nInitialization succeed,start uploading.\n";
 }else{
